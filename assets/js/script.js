@@ -8,11 +8,11 @@ function displayTimeBlocks(){
     for(var i = 9; i <= 17; i++){
         var container = $(".container")
 
-        var groupDiv = $("<div>").addClass("row")
-        var timeDiv = $("<div>").text(timeString(i)).addClass("col-2 justify-content-center")
-        var noteDiv = $("<div>").addClass("col-8 justify-content-center " + timeColor(i))
-        var saveDiv = $("<div>").text("💾").addClass("col-2 bg-info justify-content-center")
-
+        var groupDiv = $("<div>").addClass("row min-vw-100")
+        var timeDiv = $("<div>").text(timeString(i)).addClass("col-1 justify-content-center")
+        var noteDiv = $("<input>").addClass("col-10 justify-content-center " + timeColor(i))
+        var saveDiv = $("<div>").text("💾").addClass("col-1 bg-info justify-content-center")
+        saveDiv.attr("id", "save")
 
         groupDiv.append(timeDiv, noteDiv, saveDiv)
         container.append(groupDiv)
@@ -39,5 +39,9 @@ function timeString(int){
         return ((int-12)+"PM")
     }
 }
+
+$(document).on("click", "#save", function(event){
+    
+})
 
 displayTimeBlocks()
