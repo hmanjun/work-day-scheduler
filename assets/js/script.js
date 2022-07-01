@@ -8,10 +8,10 @@ function displayTimeBlocks(){
     for(var i = 9; i <= 17; i++){
         var container = $(".container")
 
-        var groupDiv = $("<div>").addClass("row min-vw-100")
-        var timeDiv = $("<div>").text(timeString(i)).addClass("col-1 justify-content-center")
-        var noteDiv = $("<input>").addClass("col-10 justify-content-center " + timeColor(i))
-        var saveDiv = $("<div>").text("💾").addClass("col-1 bg-info justify-content-center")
+        var groupDiv = $("<div>").addClass("row")
+        var timeDiv = $("<div>").text(timeString(i)).addClass("hour")
+        var noteDiv = $("<input>").addClass("justify-content-center " + timeColor(i))
+        var saveDiv = $("<div>").text("💾").addClass("saveBtn")
         saveDiv.attr("id", "save")
 
         groupDiv.append(timeDiv, noteDiv, saveDiv)
@@ -21,11 +21,11 @@ function displayTimeBlocks(){
 
 function timeColor(time){
     if(time == moment().format("H")){
-        return "bg-danger"
+        return "present"
     } else if(time < moment().format("H")){
-        return "bg-secondary"
+        return "past"
     } else {
-        return "bg-success"
+        return "future"
     }
 }
 
