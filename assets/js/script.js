@@ -9,9 +9,13 @@ function displayTimeBlocks(){
         var container = $(".container")
 
         var groupDiv = $("<div>").addClass("row")
-        var timeDiv = $("<div>").text(timeString(i)).addClass("hour")
-        var noteDiv = $("<input>").addClass("justify-content-center " + timeColor(i))
-        var saveDiv = $("<div>").text("💾").addClass("saveBtn")
+        var timeDiv = $("<div>").text(timeString(i)).addClass("hour col-1")
+        var noteDiv = $("<input>").addClass("justify-content-center col-10 " + timeColor(i))
+        noteDiv.attr("id", i+"storage")
+        if(localStorage.getItem(i+"storage") != null){
+            noteDiv.val(localStorage.getItem(i+"storage"))
+        }
+        var saveDiv = $("<div>").text("💾").addClass("saveBtn col-1")
         saveDiv.attr("id", "save")
 
         groupDiv.append(timeDiv, noteDiv, saveDiv)
@@ -41,7 +45,10 @@ function timeString(int){
 }
 
 $(document).on("click", "#save", function(event){
-    
+    //console.log($(this).siblings("input").val())
+    var id = $(this).siblings("input").attr("id")
+    localStorage.setItem(id, $(this).siblings("input").val())
+    console.log(localStorage.getItem(id))
 })
 
 displayTimeBlocks()
