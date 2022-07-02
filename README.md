@@ -9,7 +9,7 @@ This project uses third-party api such as moment.js, bootstrap, and jquery. It i
 ![Website Screen Shot](./assets/img/Website-Screenshot.PNG)
 
 ## Deployed Site Link
-[Portfolio Website](https://hmanjun.github.io/Portfolio-page/)
+[Scheduler Website](https://hmanjun.github.io/work-day-scheduler/)
 
 ## License
 [Link](https://github.com/hmanjun/horiseon-refactor/blob/main/LICENSE)
