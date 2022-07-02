@@ -8,8 +8,8 @@ function displayTimeBlocks(){
     for(var i = 9; i <= 17; i++){
         var container = $(".container")
 
-        var groupDiv = $("<div>").addClass("row")
-        var timeDiv = $("<div>").text(timeString(i)).addClass("hour col-1")
+        var groupDiv = $("<div>").addClass("row time-block") //Rows
+        var timeDiv = $("<div>").text(timeString(i)).addClass("hour col-1") //Time eLement
         var noteDiv = $("<input>").addClass("justify-content-center col-10 " + timeColor(i))
         noteDiv.attr("id", i+"storage")
         if(localStorage.getItem(i+"storage") != null){
@@ -45,7 +45,6 @@ function timeString(int){
 }
 
 $(document).on("click", "#save", function(event){
-    //console.log($(this).siblings("input").val())
     var id = $(this).siblings("input").attr("id")
     localStorage.setItem(id, $(this).siblings("input").val())
     console.log(localStorage.getItem(id))
